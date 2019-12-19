@@ -807,6 +807,9 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="mm1-pf-f3Q" id="xz4-Cb-ery"/>
+                                </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kRE-fE-EuU">
                                 <rect key="frame" x="18" y="140" width="44" height="16"/>
@@ -826,6 +829,9 @@ DQ
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="mm1-pf-f3Q" id="XE2-8g-EKD"/>
+                                </connections>
                             </textField>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UrZ-jd-FDo">
                                 <rect key="frame" x="107" y="62" width="145" height="25"/>
@@ -861,10 +867,16 @@ DQ
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
+                                <connections>
+                                    <action selector="fileSystemPicked:" target="mm1-pf-f3Q" id="mDO-Sh-puI"/>
+                                </connections>
                             </popUpButton>
                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eM9-hz-vBE">
                                 <rect key="frame" x="233" y="98" width="19" height="28"/>
-                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="Hyl-fI-4c8"/>
+                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="10000000" id="Hyl-fI-4c8"/>
+                                <connections>
+                                    <action selector="stepperDidStepped:" target="mm1-pf-f3Q" id="Fv5-xf-BKq"/>
+                                </connections>
                             </stepper>
                         </subviews>
                         <constraints>
@@ -890,6 +902,13 @@ DQ
                             <constraint firstItem="QqW-Oq-vEI" firstAttribute="firstBaseline" secondItem="6gv-hJ-ThP" secondAttribute="firstBaseline" id="yfN-V1-iIl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="createButton" destination="CCB-JD-f0h" id="c57-sY-hTI"/>
+                        <outlet property="fileSystemPicker" destination="UrZ-jd-FDo" id="WjX-W2-5ql"/>
+                        <outlet property="nameField" destination="noQ-K1-qi1" id="I25-rj-KYH"/>
+                        <outlet property="sizeField" destination="QqW-Oq-vEI" id="yAm-QX-fjh"/>
+                        <outlet property="sizeStepper" destination="eM9-hz-vBE" id="3b8-id-B5o"/>
+                    </connections>
                 </viewController>
                 <customObject id="1Ps-uv-q95" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -16,6 +16,11 @@ extension NSApplication {
     ///  from the app switcher and the dock, leaving only the status bar icon. If `false` then
     /// main window is presented in addition to the status bar icon.
     func hideInTray(_ shouldHide: Bool) {
+        
+        if shouldHide {
+            keyWindow?.close()
+        }
+        
         NSApp.setActivationPolicy(shouldHide ? .accessory : .regular)
     }
 }
