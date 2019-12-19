@@ -12,15 +12,16 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
 
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        NSApp.hideInTray(true)
+        StatusMenu.shared.show()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
-
+    
+    @objc func orderABurrito() {
+        print("Ordering a burrito!")
+    }
 }
-

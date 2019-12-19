@@ -8,19 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		03D3A4EE23AA2EEA0073BB86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */; };
-		03D3A4F023AA2EEA0073BB86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A4EF23AA2EEA0073BB86 /* ViewController.swift */; };
 		03D3A4F223AA2EEB0073BB86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D3A4F123AA2EEB0073BB86 /* Assets.xcassets */; };
 		03D3A4F523AA2EEB0073BB86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D3A4F323AA2EEB0073BB86 /* Main.storyboard */; };
+		03D3A4FE23AA30590073BB86 /* NSApp+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A4FD23AA30590073BB86 /* NSApp+Extensions.swift */; };
+		03D3A50023AA443A0073BB86 /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A4FF23AA443A0073BB86 /* StatusMenu.swift */; };
+		03D3A50223AA488E0073BB86 /* CreateNewDiskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A50123AA488E0073BB86 /* CreateNewDiskViewController.swift */; };
+		03D3A50623AA662B0073BB86 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A50523AA662B0073BB86 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		03D3A4EA23AA2EEA0073BB86 /* RDisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RDisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		03D3A4EF23AA2EEA0073BB86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		03D3A4F123AA2EEB0073BB86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03D3A4F423AA2EEB0073BB86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03D3A4F623AA2EEB0073BB86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03D3A4F723AA2EEB0073BB86 /* RDisk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RDisk.entitlements; sourceTree = "<group>"; };
+		03D3A4FD23AA30590073BB86 /* NSApp+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSApp+Extensions.swift"; sourceTree = "<group>"; };
+		03D3A4FF23AA443A0073BB86 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
+		03D3A50123AA488E0073BB86 /* CreateNewDiskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewDiskViewController.swift; sourceTree = "<group>"; };
+		03D3A50523AA662B0073BB86 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,13 +60,32 @@
 			isa = PBXGroup;
 			children = (
 				03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */,
-				03D3A4EF23AA2EEA0073BB86 /* ViewController.swift */,
+				03D3A4FF23AA443A0073BB86 /* StatusMenu.swift */,
+				03D3A50323AA489D0073BB86 /* User Interface */,
+				03D3A4FD23AA30590073BB86 /* NSApp+Extensions.swift */,
 				03D3A4F123AA2EEB0073BB86 /* Assets.xcassets */,
-				03D3A4F323AA2EEB0073BB86 /* Main.storyboard */,
 				03D3A4F623AA2EEB0073BB86 /* Info.plist */,
 				03D3A4F723AA2EEB0073BB86 /* RDisk.entitlements */,
 			);
 			path = RDisk;
+			sourceTree = "<group>";
+		};
+		03D3A50323AA489D0073BB86 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				03D3A4F323AA2EEB0073BB86 /* Main.storyboard */,
+				03D3A50523AA662B0073BB86 /* AboutViewController.swift */,
+				03D3A50423AA48AC0073BB86 /* Create New Disk */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		03D3A50423AA48AC0073BB86 /* Create New Disk */ = {
+			isa = PBXGroup;
+			children = (
+				03D3A50123AA488E0073BB86 /* CreateNewDiskViewController.swift */,
+			);
+			path = "Create New Disk";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,7 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03D3A4F023AA2EEA0073BB86 /* ViewController.swift in Sources */,
+				03D3A50223AA488E0073BB86 /* CreateNewDiskViewController.swift in Sources */,
+				03D3A50023AA443A0073BB86 /* StatusMenu.swift in Sources */,
+				03D3A4FE23AA30590073BB86 /* NSApp+Extensions.swift in Sources */,
+				03D3A50623AA662B0073BB86 /* AboutViewController.swift in Sources */,
 				03D3A4EE23AA2EEA0073BB86 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
