@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03359F8B23AE3F9000C02178 /* DiskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */; };
 		037E285C23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E285B23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift */; };
 		03D3A4EE23AA2EEA0073BB86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */; };
 		03D3A4F223AA2EEB0073BB86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D3A4F123AA2EEB0073BB86 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskDetailsViewController.swift; sourceTree = "<group>"; };
 		037E285B23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+FileSystem.swift"; sourceTree = "<group>"; };
 		03D3A4EA23AA2EEA0073BB86 /* RDisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RDisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03359F8923AE3F6B00C02178 /* Disk Details */ = {
+			isa = PBXGroup;
+			children = (
+				03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */,
+			);
+			path = "Disk Details";
+			sourceTree = "<group>";
+		};
 		03D3A4E123AA2EEA0073BB86 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 				03D3A4F323AA2EEB0073BB86 /* Main.storyboard */,
 				03D3A50523AA662B0073BB86 /* AboutViewController.swift */,
 				03D3A50423AA48AC0073BB86 /* Create New Disk */,
+				03359F8923AE3F6B00C02178 /* Disk Details */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -175,6 +186,7 @@
 				03D3A4FE23AA30590073BB86 /* NSApp+Extensions.swift in Sources */,
 				03D3A50623AA662B0073BB86 /* AboutViewController.swift in Sources */,
 				03D3A4EE23AA2EEA0073BB86 /* AppDelegate.swift in Sources */,
+				03359F8B23AE3F9000C02178 /* DiskDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

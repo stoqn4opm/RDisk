@@ -19,8 +19,10 @@ extension NSApplication {
         
         if shouldHide {
             keyWindow?.close()
+            guard windows.contains(where: { $0.className != "NSStatusBarWindow" }) == false else { return }
+            setActivationPolicy(.accessory)
+        } else {
+            setActivationPolicy(.regular)
         }
-        
-        NSApp.setActivationPolicy(shouldHide ? .accessory : .regular)
     }
 }

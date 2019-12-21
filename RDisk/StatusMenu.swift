@@ -22,13 +22,26 @@ extension StatusMenu {
 /// Class containing all logic regarding the status menu of the app. Think of it as the status bar icon.
 ///
 /// The way to use it is by its shared instance.
-final class StatusMenu {
+final class StatusMenu: NSObject {
     
     /// Retain hook for the system's status bar item.
-    private var statusBarItem: NSStatusItem!
+    private var statusBarItem: NSStatusItem
     
     /// Init should not be called, use `.shared` instead.
-    private init() { }
+    private override init() {
+        statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        statusBarItem.button?.title = "􀋧"
+        statusBarItem.button?.font = NSFont.systemFont(ofSize: 18)
+        super.init()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStatusBarMenu), name: .diskCreated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStatusBarMenu), name: .diskEjected, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .diskCreated, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .diskEjected, object: nil)
+    }
 }
 
 // MARK: - Status Bar Menu
@@ -37,10 +50,12 @@ extension StatusMenu {
     
     /// Method used for showing generating the status bar menu and presenting it in the status bar.
     func show() {
-        statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-        statusBarItem.button?.title = "􀋧"
-        statusBarItem.button?.font = NSFont.systemFont(ofSize: 18)
-
+        updateStatusBarMenu()
+    }
+    
+    /// Creates the status bar menu,
+    @objc private func updateStatusBarMenu() {
+        
         let statusBarMenu = NSMenu(title: "RDisk Status Bar Menu")
         statusBarItem.menu = statusBarMenu
         
@@ -61,10 +76,17 @@ extension StatusMenu {
         create.target = self
         
         let statusItem = statusBarMenu.addItem(withTitle: "Created Disks", action: nil, keyEquivalent: "")
-        
         let subMenu = NSMenu(title: "Created Disks Submenu")
-        let subItem = subMenu.addItem(withTitle: "Disk 1", action: nil, keyEquivalent: "")
-        subItem.state = .on
+        
+        if RAMDisk.allMountedDisks.isEmpty {
+            subMenu.addItem(withTitle: "No Disks...", action: nil, keyEquivalent: "")
+        } else {
+            RAMDisk.allMountedDisks.enumerated().forEach { index, element in
+                let item = subMenu.addItem(withTitle: element.name, action: #selector(diskTapped(_:)), keyEquivalent: "")
+                item.tag = index
+                item.target = self
+            }
+        }
         
         statusBarMenu.setSubmenu(subMenu, for: statusItem)
     }
@@ -89,7 +111,6 @@ extension StatusMenu: NSUserInterfaceValidations {
     func validateUserInterfaceItem(_ item: NSValidatedUserInterfaceItem) -> Bool { true }
     
     @objc private func createNewDisk() {
-        NSApp.hideInTray(false)
         guard let viewController = NSStoryboard(name: "Main", bundle: Bundle(for: CreateNewDiskViewController.self)).instantiateController(withIdentifier: CreateNewDiskViewController.identifier) as? CreateNewDiskViewController else { return }
         presentViewController(viewController)
     }
@@ -99,30 +120,43 @@ extension StatusMenu: NSUserInterfaceValidations {
     }
     
     @objc private func openAboutPage() {
-        NSApp.hideInTray(false)
         guard let viewController = NSStoryboard(name: "Main", bundle: Bundle(for: AboutViewController.self)).instantiateController(withIdentifier: AboutViewController.identifier) as? AboutViewController else { return }
         presentViewController(viewController)
     }
     
-    @objc private func quitApp() {
+    @objc private func diskTapped(_ menuItem: NSMenuItem) {
+        guard RAMDisk.allMountedDisks.indices.contains(menuItem.tag) else { return }
+        let disk = RAMDisk.allMountedDisks[menuItem.tag]
         
+        guard let viewController = NSStoryboard(name: "Main", bundle: Bundle(for: DiskDetailsViewController.self)).instantiateController(withIdentifier: DiskDetailsViewController.identifier) as? DiskDetailsViewController else { return }
+        viewController.disk = disk
+        presentViewController(viewController)
+    }
+    
+    @objc private func quitApp() {
+        NSApp.terminate(self)
     }
 }
 
 // MARK: - Helper Methods
 
-extension StatusMenu {
+extension StatusMenu: NSWindowDelegate {
     
     private func presentViewController(_ viewController: NSViewController) {
-        if let window = NSApp.windows.first(where: { $0.contentViewController?.title == viewController.title }) {
-            window.makeKeyAndOrderFront(self)
-        } else {
-            guard let controller = NSStoryboard(name: "Main", bundle: Bundle(for: StatusMenu.self)).instantiateController(withIdentifier: "Window") as? NSWindowController else { return }
-            guard let window = controller.window else { return }
-            window.title = viewController.title ?? ""
-            window.contentViewController = viewController
-            window.center()
-            window.makeKeyAndOrderFront(self)
-        }
+        NSApp.hideInTray(false)
+        
+        guard let controller = NSStoryboard(name: "Main", bundle: Bundle(for: StatusMenu.self)).instantiateController(withIdentifier: "Window") as? NSWindowController else { return }
+        guard let window = controller.window else { return }
+        window.delegate = self
+        window.title = viewController.title ?? ""
+        window.contentViewController = viewController
+        window.center()
+        window.makeKeyAndOrderFront(self)
+    }
+    
+    func windowWillClose(_ notification: Notification) {
+        guard let window = notification.object as? NSWindow else { return }
+        guard NSApp.windows.contains(where: { $0.className != "NSStatusBarWindow" && $0 != window }) == false else { return }
+        NSApp.setActivationPolicy(.accessory)
     }
 }
