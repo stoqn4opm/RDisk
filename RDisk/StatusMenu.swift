@@ -144,7 +144,20 @@ extension StatusMenu: NSUserInterfaceValidations {
     }
     
     @objc private func quitApp() {
-        NSApp.terminate(self)
+        
+        let alert = NSAlert()
+        alert.messageText = "Are you sure you want to quit RDisk ?"
+        alert.informativeText = "All RAM disks will get ejected and all data stored on them will be lost."
+        let yesButton = alert.addButton(withTitle: "Yes, Quit")
+        let cancelButton = alert.addButton(withTitle: "Cancel")
+        
+        cancelButton.keyEquivalent = "\r"
+        yesButton.keyEquivalent = ""
+        alert.alertStyle = NSAlert.Style.critical
+        
+        if alert.runModal() == .alertFirstButtonReturn {
+            NSApp.terminate(self)
+        }
     }
 }
 

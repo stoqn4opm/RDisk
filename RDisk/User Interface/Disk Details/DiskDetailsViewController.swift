@@ -37,8 +37,21 @@ final class DiskDetailsViewController: NSViewController {
 extension DiskDetailsViewController {
     
     @IBAction private func ejectButtonTapped(_ sender: NSButton) {
-        disk?.eject()
-        NSApp.hideInTray(true)
+        
+        let alert = NSAlert()
+        alert.messageText = "Are you sure you want to eject \(disk?.name ?? "") ?"
+        alert.informativeText = "All data on it will be irrevertably lost."
+        let yesButton = alert.addButton(withTitle: "Eject")
+        let cancelButton = alert.addButton(withTitle: "Cancel")
+        
+        cancelButton.keyEquivalent = "\r"
+        yesButton.keyEquivalent = ""
+        alert.alertStyle = NSAlert.Style.warning
+        
+        if alert.runModal() == .alertFirstButtonReturn {
+            disk?.eject()
+            NSApp.hideInTray(true)
+        }
     }
     
     @IBAction private func closeButtonTapped(_ sender: NSButton) {
