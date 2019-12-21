@@ -72,10 +72,10 @@ extension StatusMenu {
 extension StatusMenu {
     
     private func prepareDiskSectionFor(_ statusBarMenu: NSMenu) {
-        let create = statusBarMenu.addItem(withTitle: "Create New RAM Disk...", action: #selector(createNewDisk), keyEquivalent: "")
+        let create = statusBarMenu.addItem(withTitle: "􀁌\tCreate New RAM Disk...", action: #selector(createNewDisk), keyEquivalent: "")
         create.target = self
         
-        let statusItem = statusBarMenu.addItem(withTitle: "Created Disks", action: nil, keyEquivalent: "")
+        let statusItem = statusBarMenu.addItem(withTitle: "􀈕\tCreated Disks", action: nil, keyEquivalent: "")
         let subMenu = NSMenu(title: "Created Disks Submenu")
         
         if RAMDisk.allMountedDisks.isEmpty {
@@ -92,9 +92,15 @@ extension StatusMenu {
     }
     
     private func preparePreferencesSectionFor(_ statusBarMenu: NSMenu) {
-        let preferences = statusBarMenu.addItem(withTitle: "Preferences...", action: #selector(openPreferences), keyEquivalent: "")
-        let about = statusBarMenu.addItem(withTitle: "About RDisk", action: #selector(openAboutPage), keyEquivalent: "")
-        preferences.target = self
+        let loginLaunch = statusBarMenu.addItem(withTitle: "", action: #selector(toggleLaunchOnLogin), keyEquivalent: "")
+        loginLaunch.attributedTitle = NSAttributedString(string: "􀆅\tLaunch RDisk at login", attributes: [NSAttributedString.Key.foregroundColor : NSColor.green])
+        
+        
+        let autocreateDisks = statusBarMenu.addItem(withTitle: "􀆄\tAuto-create disks on launch", action: #selector(toggleAutocreateDisks), keyEquivalent: "")
+        let about = statusBarMenu.addItem(withTitle: "􀁜\tAbout RDisk", action: #selector(openAboutPage), keyEquivalent: "")
+        
+        loginLaunch.target = self
+        autocreateDisks.target = self
         about.target = self
     }
     
@@ -115,7 +121,11 @@ extension StatusMenu: NSUserInterfaceValidations {
         presentViewController(viewController)
     }
     
-    @objc private func openPreferences() {
+    @objc private func toggleLaunchOnLogin() {
+        
+    }
+    
+    @objc private func toggleAutocreateDisks() {
         
     }
     
