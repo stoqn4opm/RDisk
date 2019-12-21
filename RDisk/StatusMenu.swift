@@ -93,10 +93,11 @@ extension StatusMenu {
     
     private func preparePreferencesSectionFor(_ statusBarMenu: NSMenu) {
         let loginLaunch = statusBarMenu.addItem(withTitle: "", action: #selector(toggleLaunchOnLogin), keyEquivalent: "")
-        loginLaunch.attributedTitle = NSAttributedString(string: "􀆅\tLaunch RDisk at login", attributes: [NSAttributedString.Key.foregroundColor : NSColor.green])
+        loginLaunch.attributedTitle = "Launch RDisk at login".checkmarked
         
+        let autocreateDisks = statusBarMenu.addItem(withTitle: "", action: #selector(toggleAutocreateDisks), keyEquivalent: "")
+        autocreateDisks.attributedTitle = "Auto-create disks on launch".crossed
         
-        let autocreateDisks = statusBarMenu.addItem(withTitle: "􀆄\tAuto-create disks on launch", action: #selector(toggleAutocreateDisks), keyEquivalent: "")
         let about = statusBarMenu.addItem(withTitle: "􀁜\tAbout RDisk", action: #selector(openAboutPage), keyEquivalent: "")
         
         loginLaunch.target = self

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03359F8B23AE3F9000C02178 /* DiskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */; };
+		03359F8D23AE94B400C02178 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8C23AE94B400C02178 /* String+Helper.swift */; };
 		037E285C23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E285B23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift */; };
 		03D3A4EE23AA2EEA0073BB86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */; };
 		03D3A4F223AA2EEB0073BB86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D3A4F123AA2EEB0073BB86 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskDetailsViewController.swift; sourceTree = "<group>"; };
+		03359F8C23AE94B400C02178 /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
 		037E285B23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+FileSystem.swift"; sourceTree = "<group>"; };
 		03D3A4EA23AA2EEA0073BB86 /* RDisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RDisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			children = (
 				03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */,
 				03D3A4FF23AA443A0073BB86 /* StatusMenu.swift */,
+				03359F8C23AE94B400C02178 /* String+Helper.swift */,
 				03D3A50723AB6AB90073BB86 /* RAMDisk.swift */,
 				037E285B23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift */,
 				03D3A51C23AB84480073BB86 /* RAMDisk+Helpers.swift */,
@@ -182,6 +185,7 @@
 				03D3A50223AA488E0073BB86 /* CreateNewDiskViewController.swift in Sources */,
 				037E285C23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift in Sources */,
 				03D3A50823AB6AB90073BB86 /* RAMDisk.swift in Sources */,
+				03359F8D23AE94B400C02178 /* String+Helper.swift in Sources */,
 				03D3A50023AA443A0073BB86 /* StatusMenu.swift in Sources */,
 				03D3A4FE23AA30590073BB86 /* NSApp+Extensions.swift in Sources */,
 				03D3A50623AA662B0073BB86 /* AboutViewController.swift in Sources */,
