@@ -79,7 +79,7 @@ extension RAMDisk {
     ///
     /// - Parameter id: The id of the disk that you want ejected.
     /// - Returns: `true` if eject was successful, `false` otherwise.
-    @discardableResult static func ejectDisk(withID id: String) -> Bool {
+    @discardableResult static func ejectDisk(withID id: String, waitForCompletion: Bool = false) -> Bool {
         let task = Process()
         task.executableURL = URL(fileURLWithPath: "/usr/sbin/diskutil")
         
@@ -90,7 +90,9 @@ extension RAMDisk {
         
         task.standardOutput = outputPipe
         task.standardError = errorPipe
-        task.waitUntilExit()
+        if waitForCompletion {        
+            task.waitUntilExit()
+        }
         
         task.launch()
         

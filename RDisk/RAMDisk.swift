@@ -84,10 +84,10 @@ extension RAMDisk {
     /// Ejects this ram disk from Finder, destroying all things stored in it.
     ///
     /// - Returns: `true` if eject was successful, `false` otherwise.
-    @discardableResult func eject() -> Bool {
+    @discardableResult func eject(waitForCompletion: Bool = false) -> Bool {
         guard let id = identifier else { return false }
         
-        guard RAMDisk.ejectDisk(withID: id) else { return false }
+        guard RAMDisk.ejectDisk(withID: id, waitForCompletion: waitForCompletion) else { return false }
         guard let index = RAMDisk.allMountedDisks.firstIndex(of: self) else { return false }
         RAMDisk.allMountedDisks.remove(at: index)
         NotificationCenter.default.post(name: .diskEjected, object: self)

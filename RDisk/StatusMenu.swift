@@ -156,7 +156,8 @@ extension StatusMenu: NSUserInterfaceValidations {
         alert.alertStyle = NSAlert.Style.critical
         
         if alert.runModal() == .alertFirstButtonReturn {
-            NSApp.terminate(self)
+                RAMDisk.allMountedDisks.forEach { $0.eject() }
+                NSApp.terminate(self)
         }
     }
 }
