@@ -41,6 +41,8 @@ final class CreateNewDiskViewController: NSViewController {
         nameField.stringValue = name
         sizeField.integerValue = pickedSize
         sizeField.formatter = NumberFormatter()
+        fileSystemPicker.removeAllItems()
+        fileSystemPicker.addItems(withTitles: RAMDisk.FileSystem.allCases.map({ $0.description }))
         fileSystemPicker.selectItem(at: pickedFileSystemIndex)
         updateCreateButtonIfNeeded()
     }
@@ -64,6 +66,8 @@ extension CreateNewDiskViewController {
     
     @IBAction private func createButtonTapped(_ sender: Any) {
         NSApp.hideInTray(true)
+        let disk = RAMDisk(capacity: Float(pickedSize), name: name, fileSystem: RAMDisk.FileSystem.allCases[pickedFileSystemIndex])
+        disk.create()
     }
 }
 

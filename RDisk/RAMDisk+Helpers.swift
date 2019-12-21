@@ -28,7 +28,7 @@ extension RAMDisk {
     static func allocateRAMRegion(withSize size: Float) -> String? {
         let task = Process()
         task.executableURL = URL(fileURLWithPath: "/usr/bin/hdid")
-        task.arguments = ["-nomount", "ram://\(size.blocksCount)"]
+        task.arguments = ["-nomount", "ram://\(2048 * size)"]
         
         let outputPipe = Pipe()
         let errorPipe = Pipe()
@@ -45,7 +45,7 @@ extension RAMDisk {
         let error = String(decoding: errorData, as: UTF8.self)
         
         guard error.isEmpty else { return nil }
-        return output
+        return output.trimTrailingWhitespaces()
     }
     
     /// Erases an allocated RAM region with a given id to a specific filesystem and mounts it.
@@ -106,4 +106,12 @@ extension Float {
     
     /// Calculates how many blocks you will need if you want to create a ram disk with capacity in megabytes equals to this number.
     fileprivate var blocksCount: Int { Int(self * RAMDisk.blockCountInMegabyte) }
+}
+
+extension String {
+    
+    /// Removes the whitespace from the end of the string.
+    func trimTrailingWhitespaces() -> String {
+        replacingOccurrences(of: "\\s+$", with: "", options: .regularExpression)
+    }
 }
