@@ -55,8 +55,11 @@ class RAMDisk {
     ///   - name: The name of this ram disk.
     ///   - fileSystem: The file system that this drive is formatted into.
     init(capacity: Float, name: String, fileSystem: FileSystem) {
+        let countOfOccurences = RAMDisk.allMountedDisks.filter({ $0.name.starts(with: name) }).count
+        let adjustedName = countOfOccurences != 0 ? "\(name) (\(countOfOccurences))" : name
+        
         self.capacity = capacity
-        self.name = name
+        self.name = adjustedName
         self.fileSystem = fileSystem
     }
 }
