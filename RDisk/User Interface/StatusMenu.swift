@@ -92,7 +92,7 @@ extension StatusMenu {
             subMenu.addItem(withTitle: "No Disks...", action: nil, keyEquivalent: "")
         } else {
             RAMDisk.allMountedDisks.enumerated().forEach { index, element in
-                let item = subMenu.addItem(withTitle: "\(element.name) - \(Int(element.capacity)) MB", action: #selector(diskTapped(_:)), keyEquivalent: "")
+                let item = subMenu.addItem(withTitle: "\(element.name) - \(element.capacity.byteCountFormatted)", action: #selector(diskTapped(_:)), keyEquivalent: "")
                 item.tag = index
                 item.target = self
             }

@@ -27,7 +27,7 @@ final class DiskDetailsViewController: NSViewController {
         guard let disk = disk else { return }
         
         nameLabel.stringValue = disk.name
-        sizeLabel.stringValue = "\(disk.capacity) MB"
+        sizeLabel.stringValue = disk.capacity.byteCountFormatted
         fileSystemLabel.stringValue = disk.fileSystem.description
     }
 }
