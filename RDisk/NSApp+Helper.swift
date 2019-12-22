@@ -1,5 +1,5 @@
 //
-//  NSApp+Extensions.swift
+//  NSApp+Helper.swift
 //  RDisk
 //
 //  Created by Stoyan Stoyanov on 18/12/2019.
