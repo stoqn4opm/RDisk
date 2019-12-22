@@ -14,6 +14,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApp.hideInTray(true)
+        
+        RAMDisk.restoreDiskSetup()
+        RAMDisk.prepareShouldStoreDiskSetupPersistance()
         StatusMenu.shared.show()
     }
 

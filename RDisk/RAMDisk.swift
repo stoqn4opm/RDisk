@@ -30,7 +30,7 @@ extension Notification.Name {
 
 // MARK: - Model Definition
 
-class RAMDisk {
+class RAMDisk: NSObject, NSCoding {
     
     /// The size of this ram disk in MB.
     let capacity: Float
@@ -62,6 +62,22 @@ class RAMDisk {
         self.name = adjustedName
         self.fileSystem = fileSystem
     }
+    
+    required init?(coder: NSCoder) {
+        guard let encodedName = coder.decodeObject(forKey: "name") as? String else { return nil }
+        guard let encodedFileSystemRaw = coder.decodeObject(forKey: "fileSystem") as? String else { return nil }
+        guard let encodedFileSystem = FileSystem(rawValue: encodedFileSystemRaw) else { return nil }
+        
+        name = encodedName
+        fileSystem = encodedFileSystem
+        capacity = coder.decodeFloat(forKey: "capacity")
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(name, forKey: "name")
+        coder.encode(fileSystem.rawValue, forKey: "fileSystem")
+        coder.encode(capacity, forKey: "capacity")
+    }
 }
 
 // MARK: - Actions
@@ -78,25 +94,33 @@ extension RAMDisk {
         guard RAMDisk.eraseDisk(withID: id, name: name, fileSystem: fileSystem.rawValue) else { return false }
         RAMDisk.allMountedDisks.append(self)
         NotificationCenter.default.post(name: .diskCreated, object: self)
+        RAMDisk.storeDiskSetupIfNeeded()
         return true
     }
     
     /// Ejects this ram disk from Finder, destroying all things stored in it.
     ///
     /// - Returns: `true` if eject was successful, `false` otherwise.
-    @discardableResult func eject(waitForCompletion: Bool = false) -> Bool {
+    @discardableResult func eject(updateSavedSetup: Bool = true, waitForCompletion: Bool = false) -> Bool {
         guard let id = identifier else { return false }
         
         guard RAMDisk.ejectDisk(withID: id, waitForCompletion: waitForCompletion) else { return false }
         guard let index = RAMDisk.allMountedDisks.firstIndex(of: self) else { return false }
         RAMDisk.allMountedDisks.remove(at: index)
         NotificationCenter.default.post(name: .diskEjected, object: self)
+        if updateSavedSetup {        
+            RAMDisk.storeDiskSetupIfNeeded()
+        }
         return true
     }
 }
 
 // MARK: - Equatable
 
-extension RAMDisk: Equatable {
-    static func == (lhs: RAMDisk, rhs: RAMDisk) -> Bool { lhs === rhs }
+extension RAMDisk {
+    
+    override class func isEqual(_ object: Any?) -> Bool {
+        guard let existingObject = object as? RAMDisk else { return false }
+        return self === existingObject
+    }
 }
