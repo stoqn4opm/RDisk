@@ -144,8 +144,7 @@ extension StatusMenu: NSUserInterfaceValidations {
     }
     
     @objc private func openAboutPage() {
-        guard let viewController = NSStoryboard(name: "Main", bundle: Bundle(for: AboutViewController.self)).instantiateController(withIdentifier: AboutViewController.identifier) as? AboutViewController else { return }
-        presentViewController(viewController)
+        NSApp.orderFrontStandardAboutPanel(self)
     }
     
     @objc private func diskTapped(_ menuItem: NSMenuItem) {
