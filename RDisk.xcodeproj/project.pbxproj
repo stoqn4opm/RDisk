@@ -44,6 +44,7 @@
 		03359F8C23AE94B400C02178 /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
 		03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+Persistance.swift"; sourceTree = "<group>"; };
 		037E285B23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+FileSystem.swift"; sourceTree = "<group>"; };
+		03A47EB823AF78E500D9F9A3 /* AppIcon.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.sketch; sourceTree = "<group>"; };
 		03ABBF5E23AF643800F51949 /* AutoLaunchHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLaunchHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03ABBF6023AF643800F51949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03ABBF6423AF643A00F51949 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 				03D3A50323AA489D0073BB86 /* User Interface */,
 				03D3A4FD23AA30590073BB86 /* NSApp+Helper.swift */,
 				03359F8C23AE94B400C02178 /* String+Helper.swift */,
+				03A47EB823AF78E500D9F9A3 /* AppIcon.sketch */,
 				03D3A4F123AA2EEB0073BB86 /* Assets.xcassets */,
 				03D3A4F623AA2EEB0073BB86 /* Info.plist */,
 				03D3A4F723AA2EEB0073BB86 /* RDisk.entitlements */,
