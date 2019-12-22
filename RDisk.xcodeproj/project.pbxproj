@@ -11,6 +11,10 @@
 		03359F8D23AE94B400C02178 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8C23AE94B400C02178 /* String+Helper.swift */; };
 		03359F8F23AEC06D00C02178 /* RAMDisk+Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */; };
 		037E285C23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E285B23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift */; };
+		03ABBF6123AF643800F51949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABBF6023AF643800F51949 /* AppDelegate.swift */; };
+		03ABBF6523AF643A00F51949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03ABBF6423AF643A00F51949 /* Assets.xcassets */; };
+		03ABBF6823AF643A00F51949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03ABBF6623AF643A00F51949 /* Main.storyboard */; };
+		03ABBF6F23AF678D00F51949 /* AutoLaunchHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03ABBF5E23AF643800F51949 /* AutoLaunchHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		03D3A4EE23AA2EEA0073BB86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */; };
 		03D3A4F223AA2EEB0073BB86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D3A4F123AA2EEB0073BB86 /* Assets.xcassets */; };
 		03D3A4F523AA2EEB0073BB86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D3A4F323AA2EEB0073BB86 /* Main.storyboard */; };
@@ -22,11 +26,30 @@
 		03D3A51D23AB84480073BB86 /* RAMDisk+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A51C23AB84480073BB86 /* RAMDisk+Helpers.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		03ABBF6E23AF676600F51949 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				03ABBF6F23AF678D00F51949 /* AutoLaunchHelper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskDetailsViewController.swift; sourceTree = "<group>"; };
 		03359F8C23AE94B400C02178 /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
 		03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+Persistance.swift"; sourceTree = "<group>"; };
 		037E285B23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+FileSystem.swift"; sourceTree = "<group>"; };
+		03ABBF5E23AF643800F51949 /* AutoLaunchHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLaunchHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03ABBF6023AF643800F51949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		03ABBF6423AF643A00F51949 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		03ABBF6723AF643A00F51949 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		03ABBF6923AF643A00F51949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03ABBF6A23AF643A00F51949 /* AutoLaunchHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutoLaunchHelper.entitlements; sourceTree = "<group>"; };
 		03D3A4EA23AA2EEA0073BB86 /* RDisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RDisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03D3A4F123AA2EEB0073BB86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,6 +65,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		03ABBF5B23AF643800F51949 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		03D3A4E723AA2EEA0073BB86 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,10 +109,23 @@
 			path = About;
 			sourceTree = "<group>";
 		};
+		03ABBF5F23AF643800F51949 /* AutoLaunchHelper */ = {
+			isa = PBXGroup;
+			children = (
+				03ABBF6023AF643800F51949 /* AppDelegate.swift */,
+				03ABBF6423AF643A00F51949 /* Assets.xcassets */,
+				03ABBF6623AF643A00F51949 /* Main.storyboard */,
+				03ABBF6923AF643A00F51949 /* Info.plist */,
+				03ABBF6A23AF643A00F51949 /* AutoLaunchHelper.entitlements */,
+			);
+			path = AutoLaunchHelper;
+			sourceTree = "<group>";
+		};
 		03D3A4E123AA2EEA0073BB86 = {
 			isa = PBXGroup;
 			children = (
 				03D3A4EC23AA2EEA0073BB86 /* RDisk */,
+				03ABBF5F23AF643800F51949 /* AutoLaunchHelper */,
 				03D3A4EB23AA2EEA0073BB86 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				03D3A4EA23AA2EEA0073BB86 /* RDisk.app */,
+				03ABBF5E23AF643800F51949 /* AutoLaunchHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +177,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		03ABBF5D23AF643800F51949 /* AutoLaunchHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03ABBF6B23AF643A00F51949 /* Build configuration list for PBXNativeTarget "AutoLaunchHelper" */;
+			buildPhases = (
+				03ABBF5A23AF643800F51949 /* Sources */,
+				03ABBF5B23AF643800F51949 /* Frameworks */,
+				03ABBF5C23AF643800F51949 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutoLaunchHelper;
+			productName = AutoLaunchHelper;
+			productReference = 03ABBF5E23AF643800F51949 /* AutoLaunchHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
 		03D3A4E923AA2EEA0073BB86 /* RDisk */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03D3A4FA23AA2EEB0073BB86 /* Build configuration list for PBXNativeTarget "RDisk" */;
@@ -140,6 +201,7 @@
 				03D3A4E623AA2EEA0073BB86 /* Sources */,
 				03D3A4E723AA2EEA0073BB86 /* Frameworks */,
 				03D3A4E823AA2EEA0073BB86 /* Resources */,
+				03ABBF6E23AF676600F51949 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -160,6 +222,9 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Stoyan Stoyanov";
 				TargetAttributes = {
+					03ABBF5D23AF643800F51949 = {
+						CreatedOnToolsVersion = 11.3;
+					};
 					03D3A4E923AA2EEA0073BB86 = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -179,11 +244,21 @@
 			projectRoot = "";
 			targets = (
 				03D3A4E923AA2EEA0073BB86 /* RDisk */,
+				03ABBF5D23AF643800F51949 /* AutoLaunchHelper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		03ABBF5C23AF643800F51949 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03ABBF6523AF643A00F51949 /* Assets.xcassets in Resources */,
+				03ABBF6823AF643A00F51949 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		03D3A4E823AA2EEA0073BB86 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -196,6 +271,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		03ABBF5A23AF643800F51949 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03ABBF6123AF643800F51949 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		03D3A4E623AA2EEA0073BB86 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,6 +300,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		03ABBF6623AF643A00F51949 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03ABBF6723AF643A00F51949 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		03D3A4F323AA2EEB0073BB86 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -228,6 +319,61 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		03ABBF6C23AF643A00F51949 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES;
+				CODE_SIGN_ENTITLEMENTS = AutoLaunchHelper/AutoLaunchHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = PPF77J63K7;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				INFOPLIST_FILE = AutoLaunchHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.stoyanstoyanov.RDisk.AutoLaunchHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		03ABBF6D23AF643A00F51949 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES;
+				CODE_SIGN_ENTITLEMENTS = AutoLaunchHelper/AutoLaunchHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = PPF77J63K7;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				INFOPLIST_FILE = AutoLaunchHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = net.stoyanstoyanov.RDisk.AutoLaunchHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		03D3A4F823AA2EEB0073BB86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -346,6 +492,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RDisk/RDisk.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PPF77J63K7;
@@ -366,6 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RDisk/RDisk.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PPF77J63K7;
@@ -384,6 +532,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		03ABBF6B23AF643A00F51949 /* Build configuration list for PBXNativeTarget "AutoLaunchHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03ABBF6C23AF643A00F51949 /* Debug */,
+				03ABBF6D23AF643A00F51949 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		03D3A4E523AA2EEA0073BB86 /* Build configuration list for PBXProject "RDisk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

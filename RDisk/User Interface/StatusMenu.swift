@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-
+import ServiceManagement
 
 // MARK: - Singleton Instance
 
@@ -15,6 +15,9 @@ extension StatusMenu {
     
     /// Shared instance of the app's status bar menu.
     static let shared = StatusMenu()
+    
+    /// The bundle identifier of the auto launch helper program.
+    static let helperBundleName = "net.stoyanstoyanov.RDisk.AutoLaunchHelper"
 }
 
 // MARK: - Class Definition
@@ -27,11 +30,18 @@ final class StatusMenu: NSObject {
     /// Retain hook for the system's status bar item.
     private var statusBarItem: NSStatusItem
     
+    /// Property used for storing the auto launch on login status.
+    private var autoLaunchIsOn: Bool
+    
     /// Init should not be called, use `.shared` instead.
     private override init() {
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         statusBarItem.button?.title = "􀋧"
         statusBarItem.button?.font = NSFont.systemFont(ofSize: 18)
+        
+        let foundHelper = NSWorkspace.shared.runningApplications.contains { $0.bundleIdentifier == StatusMenu.helperBundleName }
+        autoLaunchIsOn = foundHelper ? true : false
+        
         super.init()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateStatusBarMenu), name: .diskCreated, object: nil)
@@ -93,7 +103,7 @@ extension StatusMenu {
     
     private func preparePreferencesSectionFor(_ statusBarMenu: NSMenu) {
         let loginLaunch = statusBarMenu.addItem(withTitle: "", action: #selector(toggleLaunchOnLogin), keyEquivalent: "")
-        loginLaunch.attributedTitle = "Launch RDisk at login".checkmarked
+        loginLaunch.attributedTitle = autoLaunchIsOn ? "Launch RDisk at login".checkmarked : "Launch RDisk at login".crossed
         
         let autocreateDisks = statusBarMenu.addItem(withTitle: "", action: #selector(toggleAutocreateDisks), keyEquivalent: "")
         autocreateDisks.attributedTitle = RAMDisk.shouldStoreDiskSetup ? "Auto-create disks on launch".checkmarked : "Auto-create disks on launch".crossed
@@ -106,7 +116,7 @@ extension StatusMenu {
     }
     
     private func prepareQuitSectionFor(_ statusBarMenu: NSMenu) {
-        let quit = statusBarMenu.addItem(withTitle: "Quit", action: #selector(quitApp), keyEquivalent: "Q")
+        let quit = statusBarMenu.addItem(withTitle: "Quit", action: #selector(quitApp), keyEquivalent: "q")
         quit.target = self
     }
 }
@@ -123,7 +133,9 @@ extension StatusMenu: NSUserInterfaceValidations {
     }
     
     @objc private func toggleLaunchOnLogin() {
-        
+        autoLaunchIsOn.toggle()
+        SMLoginItemSetEnabled(StatusMenu.helperBundleName as CFString, autoLaunchIsOn)
+        updateStatusBarMenu()
     }
     
     @objc private func toggleAutocreateDisks() {
