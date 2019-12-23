@@ -26,7 +26,7 @@ final class CreateNewDiskViewController: NSViewController {
     private var name = "RAM Disk"
     
     /// The picked size of the ram disk in MB.
-    private var pickedSize = 1024 {
+    private var pickedSize = 1000 {
         didSet {
             sizeField.integerValue = pickedSize
             sizeStepper.integerValue = pickedSize
