@@ -19,6 +19,9 @@ extension DADisk {
     /// Gives a detailed description about this raw `DADisk` with the help of `DADiskCopyDescription` function.
     var description: [String: AnyObject]? { DADiskCopyDescription(self) as? [String: AnyObject] }
     
+    /// The value under key `"DAMediaSize"` from this disk's description. This key holds the disk capacity in bytes.
+    var mediaSize: Int? { description?["DAMediaSize"] as? Int }
+    
     /// The value under key `"DADeviceModel"` from this disk's description.
     var deviceModel: String? { description?["DADeviceModel"] as? String }
     

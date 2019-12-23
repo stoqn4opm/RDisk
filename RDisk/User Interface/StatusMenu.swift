@@ -46,11 +46,13 @@ final class StatusMenu: NSObject {
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateStatusBarMenu), name: .diskCreated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateStatusBarMenu), name: .diskEjected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStatusBarMenu), name: .diskRenamed, object: nil)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .diskCreated, object: nil)
         NotificationCenter.default.removeObserver(self, name: .diskEjected, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .diskRenamed, object: nil)
     }
 }
 

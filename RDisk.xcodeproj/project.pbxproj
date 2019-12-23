@@ -97,6 +97,17 @@
 			path = "Disk Details";
 			sourceTree = "<group>";
 		};
+		03668A6C23B158D00001D822 /* Helper Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				03D3A4FD23AA30590073BB86 /* NSApp+Helper.swift */,
+				03359F8C23AE94B400C02178 /* String+Helper.swift */,
+				03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */,
+				03668A6A23B14F2A0001D822 /* DADisk+Helper.swift */,
+			);
+			path = "Helper Extensions";
+			sourceTree = "<group>";
+		};
 		03ABBF5823AF637100F51949 /* RAM Disk */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,10 +164,7 @@
 				03A47F1A23B0B32B00D9F9A3 /* DiskMonitor.swift */,
 				03ABBF5823AF637100F51949 /* RAM Disk */,
 				03D3A50323AA489D0073BB86 /* User Interface */,
-				03D3A4FD23AA30590073BB86 /* NSApp+Helper.swift */,
-				03359F8C23AE94B400C02178 /* String+Helper.swift */,
-				03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */,
-				03668A6A23B14F2A0001D822 /* DADisk+Helper.swift */,
+				03668A6C23B158D00001D822 /* Helper Extensions */,
 				03A47EB823AF78E500D9F9A3 /* AppIcon.sketch */,
 				03D3A4F123AA2EEB0073BB86 /* Assets.xcassets */,
 				03D3A4F623AA2EEB0073BB86 /* Info.plist */,

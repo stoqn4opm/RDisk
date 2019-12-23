@@ -26,6 +26,9 @@ extension Notification.Name {
     
     /// Posted by a disk who have just been ejected. Object of notification is the ejected disk.
     static let diskEjected = Notification.Name("RAMDiskEjected")
+    
+    /// Posted by a disk who have just been renamed. Object of notification is the renamed disk.
+    static let diskRenamed = Notification.Name("RAMDiskRenamed")
 }
 
 // MARK: - Model Definition
