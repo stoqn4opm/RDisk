@@ -12,6 +12,7 @@
 		03359F8F23AEC06D00C02178 /* RAMDisk+Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */; };
 		037E285C23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E285B23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift */; };
 		03A47EBA23AF79C900D9F9A3 /* Float+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */; };
+		03A47F1B23B0B32B00D9F9A3 /* DiskMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A47F1A23B0B32B00D9F9A3 /* DiskMonitor.swift */; };
 		03ABBF6123AF643800F51949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABBF6023AF643800F51949 /* AppDelegate.swift */; };
 		03ABBF6523AF643A00F51949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03ABBF6423AF643A00F51949 /* Assets.xcassets */; };
 		03ABBF6823AF643A00F51949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03ABBF6623AF643A00F51949 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		037E285B23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+FileSystem.swift"; sourceTree = "<group>"; };
 		03A47EB823AF78E500D9F9A3 /* AppIcon.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.sketch; sourceTree = "<group>"; };
 		03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Helper.swift"; sourceTree = "<group>"; };
+		03A47F1A23B0B32B00D9F9A3 /* DiskMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskMonitor.swift; sourceTree = "<group>"; };
 		03ABBF5E23AF643800F51949 /* AutoLaunchHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLaunchHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03ABBF6023AF643800F51949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03ABBF6423AF643A00F51949 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */,
+				03A47F1A23B0B32B00D9F9A3 /* DiskMonitor.swift */,
 				03ABBF5823AF637100F51949 /* RAM Disk */,
 				03D3A50323AA489D0073BB86 /* User Interface */,
 				03D3A4FD23AA30590073BB86 /* NSApp+Helper.swift */,
@@ -291,6 +294,7 @@
 				03D3A51D23AB84480073BB86 /* RAMDisk+Helpers.swift in Sources */,
 				03D3A50223AA488E0073BB86 /* CreateNewDiskViewController.swift in Sources */,
 				03A47EBA23AF79C900D9F9A3 /* Float+Helper.swift in Sources */,
+				03A47F1B23B0B32B00D9F9A3 /* DiskMonitor.swift in Sources */,
 				037E285C23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift in Sources */,
 				03D3A50823AB6AB90073BB86 /* RAMDisk.swift in Sources */,
 				03359F8D23AE94B400C02178 /* String+Helper.swift in Sources */,

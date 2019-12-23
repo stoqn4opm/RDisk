@@ -18,14 +18,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         RAMDisk.restoreDiskSetup()
         RAMDisk.prepareShouldStoreDiskSetupPersistance()
         StatusMenu.shared.show()
+        
+        DiskMonitor.shared.startMonitoring()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
         RAMDisk.allMountedDisks.forEach { $0.eject() }
-    }
-    
-    @objc func orderABurrito() {
-        print("Ordering a burrito!")
+        DiskMonitor.shared.stopMonitoring()
     }
 }
