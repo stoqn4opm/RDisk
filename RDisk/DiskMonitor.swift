@@ -9,6 +9,21 @@
 import Foundation
 import DiskArbitration
 
+
+// MARK: - Notifications
+
+extension Notification.Name {
+    
+    /// Posted by the `DiskMonitor` when a disk appears. The notification's object is the raw `DADisk`.
+    static let rawDiskAppeared = Notification.Name("DiskMonitor.rawDiskAppeared")
+    
+    /// Posted by the `DiskMonitor` when a disk dissapears. The notification's object is the raw `DADisk`.
+    static let rawDiskDisappeared = Notification.Name("DiskMonitor.rawDiskDisappeared")
+    
+    /// Posted by the `DiskMonitor` when a disk gets renamed. The notification's object is the raw `DADisk`.
+    static let rawDiskRenamed = Notification.Name("DiskMonitor.rawDiskRenamed")
+}
+
 // MARK: - Getting Instance
 
 extension DiskMonitor {
@@ -19,6 +34,11 @@ extension DiskMonitor {
 
 // MARK: - Class Definition
 
+/// Simple class that acts as a wrapper around the `DiskArbritation` framework from Apple that notifies
+/// about changes with disk drives.
+///
+/// In order to start the monitoring process call `startMonitoring()`, and the DiskMonitor will start
+/// to post notifications with the raw `DADisk`s on disk appearing/ejecting/renaming.
 final class DiskMonitor {
     
     /// Retain handle for the `DiskArbitration` session that provides disk info from the operating system.
@@ -37,38 +57,30 @@ final class DiskMonitor {
 
 extension DiskMonitor {
     
+    /// Makes the disk monitor start monitor what disks are added/ejected/renamed.
+    ///
+    /// It posts notifications for adding/ejecting/renaming `.rawDiskAppeared`/`.rawDiskDisappeared`/`.rawDiskRenamed`.
+    ///
+    /// You can stop the monitoring process with `stopMonitoring()`.
     func startMonitoring() {
         DARegisterDiskAppearedCallback(session, kDADiskDescriptionMatchVolumeMountable.takeUnretainedValue(), { disk, pointer in
-            //            let wholeDisk = DADiskCopyWholeDisk(disk)
-            //            print(wholeDisk) // <DADisk 0x600000c9ccf0 [0x7fff89d3d090]>{id = /dev/disk0}
-            
-            guard let description = DADiskCopyDescription(disk) as? [String: AnyObject] else { return }
-            print(description["DAVolumeName"])
-            
-            print("\n ---------- \n")
-            
+            NotificationCenter.default.post(name: .rawDiskAppeared, object: disk, userInfo: nil)
         }, nil)
         
-        
         DARegisterDiskDisappearedCallback(session, nil, {disk, pointer in
-            
-            let wholeDisk = DADiskCopyWholeDisk(disk)
-            print(wholeDisk) // <DADisk 0x600000c9ccf0 [0x7fff89d3d090]>{id = /dev/disk0}
-            
-            guard let description = DADiskCopyDescription(disk) as? [String: AnyObject] else { return }
-            print(description)
-            
-            
+            NotificationCenter.default.post(name: .rawDiskDisappeared, object: disk, userInfo: nil)
         }, nil)
         
         DARegisterDiskDescriptionChangedCallback(session, nil, nil, {disk, keys, context in
-            guard let description = DADiskCopyDescription(disk) as? [String: AnyObject] else { return }
-            print(description["DAVolumeName"]!)
+            NotificationCenter.default.post(name: .rawDiskRenamed, object: disk, userInfo: nil)
         }, nil)
         
         DASessionSetDispatchQueue(session, DispatchQueue.main)
     }
     
+    /// Stops the currently launched disk monitoring.
+    ///
+    /// You can start it again with `startMonitoring()`.
     func stopMonitoring() {
         DASessionSetDispatchQueue(session, nil)
     }

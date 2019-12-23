@@ -10,6 +10,7 @@
 		03359F8B23AE3F9000C02178 /* DiskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */; };
 		03359F8D23AE94B400C02178 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8C23AE94B400C02178 /* String+Helper.swift */; };
 		03359F8F23AEC06D00C02178 /* RAMDisk+Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */; };
+		03668A6B23B14F2A0001D822 /* DADisk+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03668A6A23B14F2A0001D822 /* DADisk+Helper.swift */; };
 		037E285C23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037E285B23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift */; };
 		03A47EBA23AF79C900D9F9A3 /* Float+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */; };
 		03A47F1B23B0B32B00D9F9A3 /* DiskMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A47F1A23B0B32B00D9F9A3 /* DiskMonitor.swift */; };
@@ -45,6 +46,7 @@
 		03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskDetailsViewController.swift; sourceTree = "<group>"; };
 		03359F8C23AE94B400C02178 /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
 		03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+Persistance.swift"; sourceTree = "<group>"; };
+		03668A6A23B14F2A0001D822 /* DADisk+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DADisk+Helper.swift"; sourceTree = "<group>"; };
 		037E285B23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+FileSystem.swift"; sourceTree = "<group>"; };
 		03A47EB823AF78E500D9F9A3 /* AppIcon.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.sketch; sourceTree = "<group>"; };
 		03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Helper.swift"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				03D3A4FD23AA30590073BB86 /* NSApp+Helper.swift */,
 				03359F8C23AE94B400C02178 /* String+Helper.swift */,
 				03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */,
+				03668A6A23B14F2A0001D822 /* DADisk+Helper.swift */,
 				03A47EB823AF78E500D9F9A3 /* AppIcon.sketch */,
 				03D3A4F123AA2EEB0073BB86 /* Assets.xcassets */,
 				03D3A4F623AA2EEB0073BB86 /* Info.plist */,
@@ -294,6 +297,7 @@
 				03D3A51D23AB84480073BB86 /* RAMDisk+Helpers.swift in Sources */,
 				03D3A50223AA488E0073BB86 /* CreateNewDiskViewController.swift in Sources */,
 				03A47EBA23AF79C900D9F9A3 /* Float+Helper.swift in Sources */,
+				03668A6B23B14F2A0001D822 /* DADisk+Helper.swift in Sources */,
 				03A47F1B23B0B32B00D9F9A3 /* DiskMonitor.swift in Sources */,
 				037E285C23AE0F8A009F6B04 /* RAMDisk+FileSystem.swift in Sources */,
 				03D3A50823AB6AB90073BB86 /* RAMDisk.swift in Sources */,
