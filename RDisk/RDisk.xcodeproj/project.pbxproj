@@ -51,7 +51,6 @@
 /* Begin PBXFileReference section */
 		03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskDetailsViewController.swift; sourceTree = "<group>"; };
 		03359F8C23AE94B400C02178 /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
-		03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+Persistance.swift"; sourceTree = "<group>"; };
 		03668AE923B2AF1E0001D822 /* RAMDiskManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RAMDiskManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A47EB823AF78E500D9F9A3 /* AppIcon.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.sketch; sourceTree = "<group>"; };
 		03A47EB923AF79C900D9F9A3 /* Int+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Helper.swift"; sourceTree = "<group>"; };
@@ -117,12 +116,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		03ABBF5823AF637100F51949 /* RAM Disk */ = {
+		03668AEF23B2B9590001D822 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */,
+				03A47EB823AF78E500D9F9A3 /* AppIcon.sketch */,
+				03D3A4F123AA2EEB0073BB86 /* Assets.xcassets */,
+				03D3A4F623AA2EEB0073BB86 /* Info.plist */,
+				03D3A4F723AA2EEB0073BB86 /* RDisk.entitlements */,
 			);
-			path = "RAM Disk";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		03ABBF5F23AF643800F51949 /* AutoLaunchHelper */ = {
@@ -160,13 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */,
-				03ABBF5823AF637100F51949 /* RAM Disk */,
 				03D3A50323AA489D0073BB86 /* User Interface */,
 				03668A6C23B158D00001D822 /* Helper Extensions */,
-				03A47EB823AF78E500D9F9A3 /* AppIcon.sketch */,
-				03D3A4F123AA2EEB0073BB86 /* Assets.xcassets */,
-				03D3A4F623AA2EEB0073BB86 /* Info.plist */,
-				03D3A4F723AA2EEB0073BB86 /* RDisk.entitlements */,
+				03668AEF23B2B9590001D822 /* Supporting Files */,
 			);
 			path = RDisk;
 			sourceTree = "<group>";
@@ -510,13 +508,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = RDisk/RDisk.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "RDisk/Supporting Files/RDisk.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PPF77J63K7;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = RDisk/Info.plist;
+				INFOPLIST_FILE = "RDisk/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -531,13 +529,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = RDisk/RDisk.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "RDisk/Supporting Files/RDisk.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PPF77J63K7;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = RDisk/Info.plist;
+				INFOPLIST_FILE = "RDisk/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
