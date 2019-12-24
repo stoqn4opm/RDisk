@@ -18,8 +18,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         RAMDisk.restoreDiskSetup()
         RAMDisk.prepareShouldStoreDiskSetupPersistance()
         StatusMenu.shared.show()
-        
-        DiskMonitor.shared.startMonitoring()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

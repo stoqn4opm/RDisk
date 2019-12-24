@@ -27,3 +27,13 @@ extension String {
         return result
     }
 }
+
+// MARK: - Trimming
+
+extension String {
+    
+    /// Removes the whitespace from the end of the string.
+    func trimTrailingWhitespaces() -> String {
+        replacingOccurrences(of: "\\s+$", with: "", options: .regularExpression)
+    }
+}
