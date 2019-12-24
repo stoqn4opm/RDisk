@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import RAMDiskManager
 
 
 // MARK: - Class Definition
@@ -49,13 +50,13 @@ extension DiskDetailsViewController {
         alert.alertStyle = NSAlert.Style.warning
         
         if alert.runModal() == .alertFirstButtonReturn {
+            #warning("Handle eject error")
             disk?.eject()
             NSApp.hideInTray(true)
         }
     }
     
     @IBAction private func closeButtonTapped(_ sender: NSButton) {
-        
         NSApp.hideInTray(true)
     }
 }

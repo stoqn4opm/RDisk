@@ -7,16 +7,17 @@
 //
 
 import Cocoa
+import RAMDiskManager
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApp.hideInTray(true)
         
-//        RAMDisk.restoreDiskSetup()
-//        RAMDisk.prepareShouldStoreDiskSetupPersistance()
+        RAMDiskManager.restoreDiskSetup()
+        RAMDiskManager.prepareShouldStoreDiskSetupPersistance()
         StatusMenu.shared.show()
     }
 

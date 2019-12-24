@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		03359F8B23AE3F9000C02178 /* DiskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */; };
 		03359F8D23AE94B400C02178 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8C23AE94B400C02178 /* String+Helper.swift */; };
-		03668A8623B204B50001D822 /* DiskMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 03668A8523B204B50001D822 /* DiskMonitor */; };
-		03668A8923B20A110001D822 /* DiskUtil in Frameworks */ = {isa = PBXBuildFile; productRef = 03668A8823B20A110001D822 /* DiskUtil */; };
 		03668AEA23B2AF1E0001D822 /* RAMDiskManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03668AE923B2AF1E0001D822 /* RAMDiskManager.framework */; };
 		03668AEB23B2AF1E0001D822 /* RAMDiskManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03668AE923B2AF1E0001D822 /* RAMDiskManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03A47EBA23AF79C900D9F9A3 /* Int+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A47EB923AF79C900D9F9A3 /* Int+Helper.swift */; };
@@ -86,9 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03668A8623B204B50001D822 /* DiskMonitor in Frameworks */,
 				03668AEA23B2AF1E0001D822 /* RAMDiskManager.framework in Frameworks */,
-				03668A8923B20A110001D822 /* DiskUtil in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,8 +226,6 @@
 			);
 			name = RDisk;
 			packageProductDependencies = (
-				03668A8523B204B50001D822 /* DiskMonitor */,
-				03668A8823B20A110001D822 /* DiskUtil */,
 			);
 			productName = RDisk;
 			productReference = 03D3A4EA23AA2EEA0073BB86 /* RDisk.app */;
@@ -604,19 +598,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		03668A8523B204B50001D822 /* DiskMonitor */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 03668A8423B204B50001D822 /* XCRemoteSwiftPackageReference "DiskMonitor" */;
-			productName = DiskMonitor;
-		};
-		03668A8823B20A110001D822 /* DiskUtil */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 03668A8723B20A110001D822 /* XCRemoteSwiftPackageReference "DiskUtil" */;
-			productName = DiskUtil;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 03D3A4E223AA2EEA0073BB86 /* Project object */;
 }

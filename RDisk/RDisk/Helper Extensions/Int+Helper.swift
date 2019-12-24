@@ -16,6 +16,6 @@ extension Int {
     /// Returns a string representation of this number, generated with `ByteCountFormatter`
     var byteCountFormatted: String {
         let formatter = ByteCountFormatter()
-        return formatter.string(fromByteCount: Int64(self * 1_000_000))
+        return formatter.string(fromByteCount: Int64(self))
     }
 }

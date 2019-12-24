@@ -105,7 +105,7 @@ extension StatusMenu {
         loginLaunch.attributedTitle = autoLaunchIsOn ? "Launch RDisk at login".checkmarked : "Launch RDisk at login".crossed
         
         let autocreateDisks = statusBarMenu.addItem(withTitle: "", action: #selector(toggleAutocreateDisks), keyEquivalent: "")
-        autocreateDisks.attributedTitle = RAMDisk.shouldStoreDiskSetup ? "Auto-create disks on launch".checkmarked : "Auto-create disks on launch".crossed
+        autocreateDisks.attributedTitle = RAMDiskManager.shouldStoreDiskSetup ? "Auto-create disks on launch".checkmarked : "Auto-create disks on launch".crossed
         
         let about = statusBarMenu.addItem(withTitle: "􀁜\tAbout RDisk", action: #selector(openAboutPage), keyEquivalent: "")
         
@@ -138,7 +138,7 @@ extension StatusMenu: NSUserInterfaceValidations {
     }
     
     @objc private func toggleAutocreateDisks() {
-        RAMDisk.shouldStoreDiskSetup.toggle()
+        RAMDiskManager.shouldStoreDiskSetup.toggle()
         updateStatusBarMenu()
     }
     
@@ -147,8 +147,8 @@ extension StatusMenu: NSUserInterfaceValidations {
     }
     
     @objc private func diskTapped(_ menuItem: NSMenuItem) {
-        guard RAMDisk.allMountedDisks.indices.contains(menuItem.tag) else { return }
-        let disk = RAMDisk.allMountedDisks[menuItem.tag]
+        guard RAMDiskManager.shared.mountedRAMDisks.indices.contains(menuItem.tag) else { return }
+        let disk = RAMDiskManager.shared.mountedRAMDisks[menuItem.tag]
         
         guard let viewController = NSStoryboard(name: "Main", bundle: Bundle(for: DiskDetailsViewController.self)).instantiateController(withIdentifier: DiskDetailsViewController.identifier) as? DiskDetailsViewController else { return }
         viewController.disk = disk
@@ -168,7 +168,8 @@ extension StatusMenu: NSUserInterfaceValidations {
         alert.alertStyle = NSAlert.Style.critical
         
         if alert.runModal() == .alertFirstButtonReturn {
-            RAMDisk.allMountedDisks.forEach { $0.eject(updateSavedSetup: false) }
+            #warning("Update quit dialog")
+            RAMDiskManager.shared.mountedRAMDisks.forEach { $0.eject() }
                 NSApp.terminate(self)
         }
     }

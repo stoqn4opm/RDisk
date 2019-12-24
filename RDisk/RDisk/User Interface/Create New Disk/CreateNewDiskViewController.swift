@@ -8,6 +8,8 @@
 
 import Cocoa
 import DiskUtil
+import RAMDiskManager
+
 
 // MARK: - Class Definition
 
@@ -65,9 +67,10 @@ extension CreateNewDiskViewController {
     }
     
     @IBAction private func createButtonTapped(_ sender: Any) {
-        NSApp.hideInTray(true)
-        let disk = RAMDisk(capacity: Float(pickedSize), name: name, fileSystem: FileSystem.allCases[pickedFileSystemIndex])
-        disk.create()
+        RAMDiskManager.shared.createRAMDisk(name: name, fileSystem: FileSystem.allCases[pickedFileSystemIndex], capacity: pickedSize) { (ramDisk, error) in
+            #warning("Handle error")
+            NSApp.hideInTray(true)        
+        }
     }
 }
 
