@@ -14,7 +14,7 @@ import DiskArbitration
 extension DADisk {
     
     /// The whole disk containing this one.
-    var wholeDiskName: DADisk? { DADiskCopyWholeDisk(self) }
+    var wholeDisk: DADisk? { DADiskCopyWholeDisk(self) }
     
     /// Gives a detailed description about this raw `DADisk` with the help of `DADiskCopyDescription` function.
     var description: [String: AnyObject]? { DADiskCopyDescription(self) as? [String: AnyObject] }
