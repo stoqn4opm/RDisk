@@ -3,18 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		03359F8B23AE3F9000C02178 /* DiskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */; };
 		03359F8D23AE94B400C02178 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8C23AE94B400C02178 /* String+Helper.swift */; };
 		03359F8F23AEC06D00C02178 /* RAMDisk+Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */; };
-		03668A6B23B14F2A0001D822 /* DADisk+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03668A6A23B14F2A0001D822 /* DADisk+Helper.swift */; };
-		03668A6E23B1F0DA0001D822 /* DiskUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03668A6D23B1F0DA0001D822 /* DiskUtil.swift */; };
-		03668A8323B1FA9C0001D822 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03668A8223B1FA9C0001D822 /* FileSystem.swift */; };
+		03668A8623B204B50001D822 /* DiskMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 03668A8523B204B50001D822 /* DiskMonitor */; };
+		03668A8923B20A110001D822 /* DiskUtil in Frameworks */ = {isa = PBXBuildFile; productRef = 03668A8823B20A110001D822 /* DiskUtil */; };
 		03A47EBA23AF79C900D9F9A3 /* Float+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */; };
-		03A47F1B23B0B32B00D9F9A3 /* DiskMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A47F1A23B0B32B00D9F9A3 /* DiskMonitor.swift */; };
 		03ABBF6123AF643800F51949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABBF6023AF643800F51949 /* AppDelegate.swift */; };
 		03ABBF6523AF643A00F51949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03ABBF6423AF643A00F51949 /* Assets.xcassets */; };
 		03ABBF6823AF643A00F51949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03ABBF6623AF643A00F51949 /* Main.storyboard */; };
@@ -45,12 +43,8 @@
 		03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskDetailsViewController.swift; sourceTree = "<group>"; };
 		03359F8C23AE94B400C02178 /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
 		03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+Persistance.swift"; sourceTree = "<group>"; };
-		03668A6A23B14F2A0001D822 /* DADisk+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DADisk+Helper.swift"; sourceTree = "<group>"; };
-		03668A6D23B1F0DA0001D822 /* DiskUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskUtil.swift; sourceTree = "<group>"; };
-		03668A8223B1FA9C0001D822 /* FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
 		03A47EB823AF78E500D9F9A3 /* AppIcon.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.sketch; sourceTree = "<group>"; };
 		03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Helper.swift"; sourceTree = "<group>"; };
-		03A47F1A23B0B32B00D9F9A3 /* DiskMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskMonitor.swift; sourceTree = "<group>"; };
 		03ABBF5E23AF643800F51949 /* AutoLaunchHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLaunchHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03ABBF6023AF643800F51949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03ABBF6423AF643A00F51949 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03668A8623B204B50001D822 /* DiskMonitor in Frameworks */,
+				03668A8923B20A110001D822 /* DiskUtil in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +97,6 @@
 				03D3A4FD23AA30590073BB86 /* NSApp+Helper.swift */,
 				03359F8C23AE94B400C02178 /* String+Helper.swift */,
 				03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */,
-				03668A6A23B14F2A0001D822 /* DADisk+Helper.swift */,
 			);
 			path = "Helper Extensions";
 			sourceTree = "<group>";
@@ -149,9 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				03D3A4ED23AA2EEA0073BB86 /* AppDelegate.swift */,
-				03A47F1A23B0B32B00D9F9A3 /* DiskMonitor.swift */,
-				03668A6D23B1F0DA0001D822 /* DiskUtil.swift */,
-				03668A8223B1FA9C0001D822 /* FileSystem.swift */,
 				03ABBF5823AF637100F51949 /* RAM Disk */,
 				03D3A50323AA489D0073BB86 /* User Interface */,
 				03668A6C23B158D00001D822 /* Helper Extensions */,
@@ -216,6 +208,10 @@
 			dependencies = (
 			);
 			name = RDisk;
+			packageProductDependencies = (
+				03668A8523B204B50001D822 /* DiskMonitor */,
+				03668A8823B20A110001D822 /* DiskUtil */,
+			);
 			productName = RDisk;
 			productReference = 03D3A4EA23AA2EEA0073BB86 /* RDisk.app */;
 			productType = "com.apple.product-type.application";
@@ -247,6 +243,10 @@
 				Base,
 			);
 			mainGroup = 03D3A4E123AA2EEA0073BB86;
+			packageReferences = (
+				03668A8423B204B50001D822 /* XCRemoteSwiftPackageReference "DiskMonitor" */,
+				03668A8723B20A110001D822 /* XCRemoteSwiftPackageReference "DiskUtil" */,
+			);
 			productRefGroup = 03D3A4EB23AA2EEA0073BB86 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -291,12 +291,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03668A8323B1FA9C0001D822 /* FileSystem.swift in Sources */,
 				03D3A50223AA488E0073BB86 /* CreateNewDiskViewController.swift in Sources */,
 				03A47EBA23AF79C900D9F9A3 /* Float+Helper.swift in Sources */,
-				03668A6B23B14F2A0001D822 /* DADisk+Helper.swift in Sources */,
-				03668A6E23B1F0DA0001D822 /* DiskUtil.swift in Sources */,
-				03A47F1B23B0B32B00D9F9A3 /* DiskMonitor.swift in Sources */,
 				03D3A50823AB6AB90073BB86 /* RAMDisk.swift in Sources */,
 				03359F8D23AE94B400C02178 /* String+Helper.swift in Sources */,
 				03359F8F23AEC06D00C02178 /* RAMDisk+Persistance.swift in Sources */,
@@ -570,6 +566,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		03668A8423B204B50001D822 /* XCRemoteSwiftPackageReference "DiskMonitor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stoqn4opm/DiskMonitor.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		03668A8723B20A110001D822 /* XCRemoteSwiftPackageReference "DiskUtil" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stoqn4opm/DiskUtil.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		03668A8523B204B50001D822 /* DiskMonitor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03668A8423B204B50001D822 /* XCRemoteSwiftPackageReference "DiskMonitor" */;
+			productName = DiskMonitor;
+		};
+		03668A8823B20A110001D822 /* DiskUtil */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03668A8723B20A110001D822 /* XCRemoteSwiftPackageReference "DiskUtil" */;
+			productName = DiskUtil;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 03D3A4E223AA2EEA0073BB86 /* Project object */;
 }
