@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DiskMonitor",
+        "repositoryURL": "https://github.com/stoqn4opm/DiskMonitor.git",
+        "state": {
+          "branch": null,
+          "revision": "dac397a87a687d087fcc2f45587480562b1cd7e4",
+          "version": "1.1.0"
+        }
+      },
+      {
+        "package": "DiskUtil",
+        "repositoryURL": "https://github.com/stoqn4opm/DiskUtil.git",
+        "state": {
+          "branch": null,
+          "revision": "2791a339ec73848f10ddc1b5abe722e3c809f9f3",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

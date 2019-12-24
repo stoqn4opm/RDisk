@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-
+import DiskUtil
 
 // MARK: - Class Definition
 
@@ -42,7 +42,7 @@ final class CreateNewDiskViewController: NSViewController {
         sizeField.integerValue = pickedSize
         sizeField.formatter = NumberFormatter()
         fileSystemPicker.removeAllItems()
-        fileSystemPicker.addItems(withTitles: RAMDisk.FileSystem.allCases.map({ $0.description }))
+        fileSystemPicker.addItems(withTitles: FileSystem.allCases.map({ $0.description }))
         fileSystemPicker.selectItem(at: pickedFileSystemIndex)
         updateCreateButtonIfNeeded()
     }
@@ -66,7 +66,7 @@ extension CreateNewDiskViewController {
     
     @IBAction private func createButtonTapped(_ sender: Any) {
         NSApp.hideInTray(true)
-        let disk = RAMDisk(capacity: Float(pickedSize), name: name, fileSystem: RAMDisk.FileSystem.allCases[pickedFileSystemIndex])
+        let disk = RAMDisk(capacity: Float(pickedSize), name: name, fileSystem: FileSystem.allCases[pickedFileSystemIndex])
         disk.create()
     }
 }

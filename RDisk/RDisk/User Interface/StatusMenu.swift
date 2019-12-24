@@ -8,6 +8,7 @@
 
 import Cocoa
 import ServiceManagement
+import RAMDiskManager
 
 // MARK: - Singleton Instance
 
@@ -44,15 +45,11 @@ final class StatusMenu: NSObject {
         
         super.init()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateStatusBarMenu), name: .diskCreated, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateStatusBarMenu), name: .diskEjected, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateStatusBarMenu), name: .diskRenamed, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStatusBarMenu), name: .ramDisksWereUpdated, object: nil)
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: .diskCreated, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .diskEjected, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .diskRenamed, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .ramDisksWereUpdated, object: nil)
     }
 }
 
@@ -90,10 +87,10 @@ extension StatusMenu {
         let statusItem = statusBarMenu.addItem(withTitle: "􀈕\tCreated Disks", action: nil, keyEquivalent: "")
         let subMenu = NSMenu(title: "Created Disks Submenu")
         
-        if RAMDisk.allMountedDisks.isEmpty {
+        if RAMDiskManager.shared.mountedRAMDisks.isEmpty {
             subMenu.addItem(withTitle: "No Disks...", action: nil, keyEquivalent: "")
         } else {
-            RAMDisk.allMountedDisks.enumerated().forEach { index, element in
+            RAMDiskManager.shared.mountedRAMDisks.enumerated().forEach { index, element in
                 let item = subMenu.addItem(withTitle: "\(element.name) - \(element.capacity.byteCountFormatted)", action: #selector(diskTapped(_:)), keyEquivalent: "")
                 item.tag = index
                 item.target = self

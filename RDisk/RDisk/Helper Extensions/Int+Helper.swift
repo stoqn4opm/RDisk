@@ -1,5 +1,5 @@
 //
-//  Float+Helper.swift
+//  Int+Helper.swift
 //  RDisk
 //
 //  Created by Stoyan Stoyanov on 22/12/2019.
@@ -11,7 +11,7 @@ import Foundation
 
 // MARK: - Formatting
 
-extension Float {
+extension Int {
  
     /// Returns a string representation of this number, generated with `ByteCountFormatter`
     var byteCountFormatted: String {

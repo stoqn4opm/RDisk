@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		03359F8B23AE3F9000C02178 /* DiskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */; };
 		03359F8D23AE94B400C02178 /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8C23AE94B400C02178 /* String+Helper.swift */; };
-		03359F8F23AEC06D00C02178 /* RAMDisk+Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */; };
 		03668A8623B204B50001D822 /* DiskMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 03668A8523B204B50001D822 /* DiskMonitor */; };
 		03668A8923B20A110001D822 /* DiskUtil in Frameworks */ = {isa = PBXBuildFile; productRef = 03668A8823B20A110001D822 /* DiskUtil */; };
-		03A47EBA23AF79C900D9F9A3 /* Float+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */; };
+		03668AEA23B2AF1E0001D822 /* RAMDiskManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03668AE923B2AF1E0001D822 /* RAMDiskManager.framework */; };
+		03668AEB23B2AF1E0001D822 /* RAMDiskManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03668AE923B2AF1E0001D822 /* RAMDiskManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03A47EBA23AF79C900D9F9A3 /* Int+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A47EB923AF79C900D9F9A3 /* Int+Helper.swift */; };
 		03ABBF6123AF643800F51949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03ABBF6023AF643800F51949 /* AppDelegate.swift */; };
 		03ABBF6523AF643A00F51949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03ABBF6423AF643A00F51949 /* Assets.xcassets */; };
 		03ABBF6823AF643A00F51949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03ABBF6623AF643A00F51949 /* Main.storyboard */; };
@@ -23,10 +24,20 @@
 		03D3A4FE23AA30590073BB86 /* NSApp+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A4FD23AA30590073BB86 /* NSApp+Helper.swift */; };
 		03D3A50023AA443A0073BB86 /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A4FF23AA443A0073BB86 /* StatusMenu.swift */; };
 		03D3A50223AA488E0073BB86 /* CreateNewDiskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A50123AA488E0073BB86 /* CreateNewDiskViewController.swift */; };
-		03D3A50823AB6AB90073BB86 /* RAMDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D3A50723AB6AB90073BB86 /* RAMDisk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		03668AEC23B2AF1E0001D822 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03668AEB23B2AF1E0001D822 /* RAMDiskManager.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		03ABBF6E23AF676600F51949 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -43,8 +54,9 @@
 		03359F8A23AE3F9000C02178 /* DiskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskDetailsViewController.swift; sourceTree = "<group>"; };
 		03359F8C23AE94B400C02178 /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
 		03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+Persistance.swift"; sourceTree = "<group>"; };
+		03668AE923B2AF1E0001D822 /* RAMDiskManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RAMDiskManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A47EB823AF78E500D9F9A3 /* AppIcon.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.sketch; sourceTree = "<group>"; };
-		03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Helper.swift"; sourceTree = "<group>"; };
+		03A47EB923AF79C900D9F9A3 /* Int+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Helper.swift"; sourceTree = "<group>"; };
 		03ABBF5E23AF643800F51949 /* AutoLaunchHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLaunchHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03ABBF6023AF643800F51949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03ABBF6423AF643A00F51949 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,7 +72,6 @@
 		03D3A4FD23AA30590073BB86 /* NSApp+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSApp+Helper.swift"; sourceTree = "<group>"; };
 		03D3A4FF23AA443A0073BB86 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
 		03D3A50123AA488E0073BB86 /* CreateNewDiskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewDiskViewController.swift; sourceTree = "<group>"; };
-		03D3A50723AB6AB90073BB86 /* RAMDisk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMDisk.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03668A8623B204B50001D822 /* DiskMonitor in Frameworks */,
+				03668AEA23B2AF1E0001D822 /* RAMDiskManager.framework in Frameworks */,
 				03668A8923B20A110001D822 /* DiskUtil in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,15 +108,22 @@
 			children = (
 				03D3A4FD23AA30590073BB86 /* NSApp+Helper.swift */,
 				03359F8C23AE94B400C02178 /* String+Helper.swift */,
-				03A47EB923AF79C900D9F9A3 /* Float+Helper.swift */,
+				03A47EB923AF79C900D9F9A3 /* Int+Helper.swift */,
 			);
 			path = "Helper Extensions";
+			sourceTree = "<group>";
+		};
+		03668AE823B2AF1E0001D822 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03668AE923B2AF1E0001D822 /* RAMDiskManager.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		03ABBF5823AF637100F51949 /* RAM Disk */ = {
 			isa = PBXGroup;
 			children = (
-				03D3A50723AB6AB90073BB86 /* RAMDisk.swift */,
 				03359F8E23AEC06D00C02178 /* RAMDisk+Persistance.swift */,
 			);
 			path = "RAM Disk";
@@ -128,6 +147,7 @@
 				03D3A4EC23AA2EEA0073BB86 /* RDisk */,
 				03ABBF5F23AF643800F51949 /* AutoLaunchHelper */,
 				03D3A4EB23AA2EEA0073BB86 /* Products */,
+				03668AE823B2AF1E0001D822 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +222,7 @@
 				03D3A4E723AA2EEA0073BB86 /* Frameworks */,
 				03D3A4E823AA2EEA0073BB86 /* Resources */,
 				03ABBF6E23AF676600F51949 /* CopyFiles */,
+				03668AEC23B2AF1E0001D822 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,10 +313,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03D3A50223AA488E0073BB86 /* CreateNewDiskViewController.swift in Sources */,
-				03A47EBA23AF79C900D9F9A3 /* Float+Helper.swift in Sources */,
-				03D3A50823AB6AB90073BB86 /* RAMDisk.swift in Sources */,
+				03A47EBA23AF79C900D9F9A3 /* Int+Helper.swift in Sources */,
 				03359F8D23AE94B400C02178 /* String+Helper.swift in Sources */,
-				03359F8F23AEC06D00C02178 /* RAMDisk+Persistance.swift in Sources */,
 				03D3A50023AA443A0073BB86 /* StatusMenu.swift in Sources */,
 				03D3A4FE23AA30590073BB86 /* NSApp+Helper.swift in Sources */,
 				03D3A4EE23AA2EEA0073BB86 /* AppDelegate.swift in Sources */,
