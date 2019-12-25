@@ -389,7 +389,7 @@
 			repositoryURL = "https://github.com/stoqn4opm/DiskUtil.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 2.0.0;
 			};
 		};
 		03668AE523B2AEF70001D822 /* XCRemoteSwiftPackageReference "DiskMonitor" */ = {
