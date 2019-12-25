@@ -56,7 +56,7 @@ extension DiskDetailsViewController {
         if alert.runModal() == .alertFirstButtonReturn {
             
             disk?.eject { [weak self] error in
-                guard error != nil else { self?.handleError(error); return }
+                guard error == nil else { self?.handleError(error); return }
                 NSApp.hideInTray(true)
             }
         }
@@ -73,7 +73,6 @@ extension DiskDetailsViewController {
     
     
     private func handleError(_ error: RAMDisk.Error?) {
-        
         let alert = NSAlert()
         alert.messageText = "Error occured when ejecting '\(disk?.name ?? "")'"
         alert.informativeText = "Details : \(error?.associatedValue ?? "")"

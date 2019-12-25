@@ -38,8 +38,10 @@ extension RAMDisk {
     /// - Parameter error: Error parameter populated if error has occured during the process.
     public func eject(withCompletion completion: ((_ error: Error?) -> ())? = nil) {
         DiskUtil.ejectDisk(withDevicePath: devicePath) { (responce) in
-            guard responce.error.isEmpty else { completion?(.ejectingError(responce.error)); return }
-            completion?(nil)
+            DispatchQueue.main.async {        
+                guard responce.error.isEmpty else { completion?(.ejectingError(responce.error)); return }
+                completion?(nil)
+            }
         }
     }
 }
