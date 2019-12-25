@@ -20,6 +20,8 @@ final class DiskDetailsViewController: NSViewController {
     @IBOutlet private weak var nameLabel: NSTextField!
     @IBOutlet private weak var sizeLabel: NSTextField!
     @IBOutlet private weak var fileSystemLabel: NSTextField!
+    @IBOutlet private weak var bsdNameLabel: NSTextField!
+    @IBOutlet private weak var deviceNodeLabel: NSTextFieldCell!
     
     var disk: RAMDisk?
     
@@ -30,6 +32,8 @@ final class DiskDetailsViewController: NSViewController {
         nameLabel.stringValue = disk.name
         sizeLabel.stringValue = disk.capacity.byteCountFormatted
         fileSystemLabel.stringValue = disk.fileSystem.description
+        bsdNameLabel.stringValue = disk.bsdName
+        deviceNodeLabel.stringValue = disk.devicePath
     }
 }
 
