@@ -105,7 +105,7 @@ extension StatusMenu {
         loginLaunch.attributedTitle = autoLaunchIsOn ? "Launch RDisk at login".checkmarked : "Launch RDisk at login".crossed
         
         let autocreateDisks = statusBarMenu.addItem(withTitle: "", action: #selector(toggleAutocreateDisks), keyEquivalent: "")
-        autocreateDisks.attributedTitle = RAMDiskManager.shouldStoreDiskSetup ? "Auto-create disks on launch".checkmarked : "Auto-create disks on launch".crossed
+        autocreateDisks.attributedTitle = RAMDiskManager.shared.shouldStoreDiskSetup ? "Auto-create disks on launch".checkmarked : "Auto-create disks on launch".crossed
         
         let about = statusBarMenu.addItem(withTitle: "􀁜\tAbout RDisk", action: #selector(openAboutPage), keyEquivalent: "")
         
@@ -138,7 +138,7 @@ extension StatusMenu: NSUserInterfaceValidations {
     }
     
     @objc private func toggleAutocreateDisks() {
-        RAMDiskManager.shouldStoreDiskSetup.toggle()
+        RAMDiskManager.shared.shouldStoreDiskSetup.toggle()
         updateStatusBarMenu()
     }
     

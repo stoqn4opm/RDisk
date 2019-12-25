@@ -16,6 +16,7 @@
 		03668AE423B2AEEA0001D822 /* DiskUtil in Frameworks */ = {isa = PBXBuildFile; productRef = 03668AE323B2AEEA0001D822 /* DiskUtil */; };
 		03668AE723B2AEF70001D822 /* DiskMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 03668AE623B2AEF70001D822 /* DiskMonitor */; };
 		03668AEE23B2B0F60001D822 /* RAMDiskManager+Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03668AED23B2B0F60001D822 /* RAMDiskManager+Persistance.swift */; };
+		03668AF123B2BB670001D822 /* RAMDisk+RestorationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03668AF023B2BB670001D822 /* RAMDisk+RestorationData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		03668ADB23B2AE930001D822 /* RAMDisk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMDisk.swift; sourceTree = "<group>"; };
 		03668AE023B2AEB00001D822 /* DADisk+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DADisk+Helper.swift"; sourceTree = "<group>"; };
 		03668AED23B2B0F60001D822 /* RAMDiskManager+Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDiskManager+Persistance.swift"; sourceTree = "<group>"; };
+		03668AF023B2BB670001D822 /* RAMDisk+RestorationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMDisk+RestorationData.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +86,9 @@
 		03668AD923B2AE930001D822 /* RAMDisk */ = {
 			isa = PBXGroup;
 			children = (
-				03668ADA23B2AE930001D822 /* RAMDisk+Error.swift */,
 				03668ADB23B2AE930001D822 /* RAMDisk.swift */,
+				03668AF023B2BB670001D822 /* RAMDisk+RestorationData.swift */,
+				03668ADA23B2AE930001D822 /* RAMDisk+Error.swift */,
 			);
 			path = RAMDisk;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				03668ADC23B2AE940001D822 /* RAMDiskManager.swift in Sources */,
 				03668ADD23B2AE940001D822 /* RAMDiskManager+Candidate.swift in Sources */,
 				03668ADF23B2AE940001D822 /* RAMDisk.swift in Sources */,
+				03668AF123B2BB670001D822 /* RAMDisk+RestorationData.swift in Sources */,
 				03668AE123B2AEB00001D822 /* DADisk+Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -48,9 +48,51 @@ public final class RAMDiskManager {
     /// To reply with `DADisk` object, representing the newly created ram disk.
     var diskCreatingCompletions: [Candidate: (RAMDisk?, RAMDisk.Error?) -> ()] = [:]
     
+    
+    // MARK: - Restoring
+    
+    /// Timer used for debouncing of restore operations.
+    var restoreTimer: Timer?
+    
+    /// Holds all `DADisk`s that are yet not recognized as `RAMDisk`s yet.
+    var remainingRawDisks: [DADisk] = [] {
+        didSet {
+            guard shouldStoreDiskSetup else { return }
+            debounceRestoringRAMDriveSetup()
+        }
+    }
+    
+    var restoreData: [RAMDiskRestorationData] = [] {
+        didSet {
+            debounceRestoringRAMDriveSetup()
+        }
+    }
+
+    
+    // MARK: - Public Properties
+    
     /// Property that holds all currently mounted ram disks. Each time this array changes,
     /// a `.ramDisksWereUpdated` notification is posted.
-    public var mountedRAMDisks: [RAMDisk] = [] { didSet { NotificationCenter.default.post(name: .ramDisksWereUpdated, object: self) } }
+    public var mountedRAMDisks: [RAMDisk] = [] { didSet { storeDiskSetupIfNeeded(); NotificationCenter.default.post(name: .ramDisksWereUpdated, object: self) } }
+    
+    
+    
+    /// Controls whether the currently mounted disks setup should be restored on next launch or not.
+    ///
+    /// This method only recreats the "stored" disks, no data will be recovered from before.
+    public var shouldStoreDiskSetup = false {
+        didSet {
+            UserDefaults.standard.set(shouldStoreDiskSetup, forKey: "shouldStoreDiskSetup")
+            UserDefaults.standard.synchronize()
+            
+            if shouldStoreDiskSetup {
+                storeDiskSetup()
+            } else {
+                clearStoredDiskSetup()
+            }
+        }
+    }
+    
     
     /// Do not use it, use `RAMDiskManager.shared` instead.
     private init() {
@@ -95,7 +137,7 @@ extension RAMDiskManager {
             self?.diskCreatingCompletions[candidate] = completion
             
             DiskUtil.eraseDisk(withDevicePath: devicePath, name: name, fileSystem: fileSystem) { (responce) in
-                guard responce.error.isEmpty == false else {return }
+                guard responce.error.isEmpty == false else { return }
                 completion(nil, .formattingError(responce.error))
                 self?.diskCreatingCompletions[candidate] = nil
             }
@@ -145,6 +187,67 @@ extension RAMDiskManager {
     }
 }
 
+// MARK: - Setup Restoration
+
+extension RAMDiskManager {
+    
+    /// Starts restoring of previous setup after, all raw disks are shown and restore data is set.
+    private func debounceRestoringRAMDriveSetup() {
+        
+        restoreTimer?.invalidate()
+        restoreTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] _ in
+            self?.tryRestoringRAMDriveSetup()
+            
+            self?.restoreTimer?.invalidate()
+            self?.restoreTimer = nil
+        }
+    }
+    
+    /// Tries to restore previous disk setup after `remainingRawDisks` and `restoreData` are populated.
+    ///
+    /// The restore algorithm is as follows:
+    ///
+    /// Enumerate all `restoreData` entries and:
+    /// - if there is a match with a raw disk from `remainingRawDisks`, create RAMDisk, add it to the `mountedRAMDisks` array,
+    /// remove the raw disk from remaining raw disks
+    ///
+    /// - if there is no match with a raw disk from `remainingRawDisks`, create a brand new ram disk with that name, capacity, file system,
+    /// and remove its entry from user defaults
+    private func tryRestoringRAMDriveSetup() {
+        restoreWithRemainingRawDisks()
+        restoreWithNewRawDisks()
+    }
+    
+    /// Tries to restore previous disk setup by recognising `DADisk`s.
+    private func restoreWithRemainingRawDisks() {
+        restoreData.forEach { data in
+            guard let foundDisk = remainingRawDisks.first(where: { data.isMatchedByRawDisk($0) }) else { return }
+            guard let index = restoreData.firstIndex(of: data) else { return }
+            
+            guard mountedRAMDisks.contains(where: { $0.rawDisk == foundDisk }) == false else { restoreData.remove(at: index); return }
+            
+            let ramDisk = RAMDisk(devicePath: data.devicePath, rawDisk: foundDisk)
+            mountedRAMDisks.append(ramDisk)
+            restoreData.remove(at: index)
+        }
+    }
+    
+    
+    /// Tries to restore previous disk setup by creating new `DADisk`s.
+    ///
+    /// This starts after `restoreWithRemainingRawDisks()` was not able to fully recover the disk setup.
+    private func restoreWithNewRawDisks() {
+        var finishedTasks = 0
+        restoreData.forEach { data in
+            createRAMDisk(name: data.name, fileSystem: data.fileSystem, capacity: data.capacity / .countOfBytesIn1MB) { [weak self] (disk, error) in
+                finishedTasks += 1
+                guard finishedTasks == self?.restoreData.count else { return }
+                self?.storeDiskSetup()
+            }
+        }
+    }
+}
+
 // MARK: - DiskMonitorDelegate
 
 extension RAMDiskManager: DiskMonitorDelegate {
@@ -152,17 +255,22 @@ extension RAMDiskManager: DiskMonitorDelegate {
     public func rawDiskMonitor(_ monitor: DiskMonitor, diskAppeared disk: DADisk) {
         guard disk.isRAMDisk else { return }
         guard tryToFinishCreationOfRAMDisks(withRawDisk: disk) == false else { return }
+        remainingRawDisks.append(disk)
     }
     
     public func rawDiskMonitor(_ monitor: DiskMonitor, diskDisappeared disk: DADisk) {
-        guard let index = mountedRAMDisks.firstIndex(where: {$0.rawDisk == disk }) else { return }
-        mountedRAMDisks.remove(at: index)
+        if let index = mountedRAMDisks.firstIndex(where: {$0.rawDisk == disk }) {
+            mountedRAMDisks.remove(at: index)
+        } else if let index = remainingRawDisks.firstIndex(where: {$0 == disk }) {
+            remainingRawDisks.remove(at: index)
+        }
     }
     
     public func rawDiskMonitor(_ monitor: DiskMonitor, diskRenamed disk: DADisk) {
         guard let index = mountedRAMDisks.firstIndex(where: {$0.rawDisk == disk }) else { return }
         mountedRAMDisks[index].rawDisk = disk
         NotificationCenter.default.post(name: .ramDisksWereUpdated, object: self)
+        storeDiskSetupIfNeeded()
     }
 }
 
