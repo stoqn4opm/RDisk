@@ -67,8 +67,9 @@ extension CreateNewDiskViewController {
     }
     
     @IBAction private func createButtonTapped(_ sender: Any) {
-        RAMDiskManager.shared.createRAMDisk(name: name, fileSystem: FileSystem.allCases[pickedFileSystemIndex], capacity: pickedSize) { (ramDisk, error) in
-            #warning("Handle error")
+        RAMDiskManager.shared.createRAMDisk(name: name, fileSystem: FileSystem.allCases[pickedFileSystemIndex], capacity: pickedSize) { [weak self] (ramDisk, error) in
+            guard error == nil else { self?.handleError(error); return }
+            guard ramDisk != nil else { self?.handleError(nil); return }
             NSApp.hideInTray(true)        
         }
     }
@@ -96,5 +97,17 @@ extension CreateNewDiskViewController {
     
     private func updateCreateButtonIfNeeded() {
         createButton.isEnabled = !name.isEmpty && pickedSize != 0
+    }
+    
+    private func handleError(_ error: RAMDisk.Error?) {
+        
+        let alert = NSAlert()
+        alert.messageText = "Error Occured During Creating of new Ram Disk"
+        alert.informativeText = "Details : \(error?.associatedValue ?? "")"
+        
+        let okButton = alert.addButton(withTitle: "OK")
+        okButton.keyEquivalent = "\r"
+        alert.alertStyle = NSAlert.Style.critical
+        alert.runModal()
     }
 }

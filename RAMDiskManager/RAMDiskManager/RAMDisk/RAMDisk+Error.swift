@@ -26,3 +26,18 @@ extension RAMDisk {
         case ejectingError(String?)
     }
 }
+
+// MARK: - Associated Value
+
+extension RAMDisk.Error {
+    
+    /// Associated value easy access.
+    public var associatedValue: String? {
+        
+        switch self {
+        case .allocationError(let value): return value
+        case .formattingError(let value): return value
+        case .ejectingError(let value): return value
+        }
+    }
+}

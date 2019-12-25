@@ -158,19 +158,23 @@ extension StatusMenu: NSUserInterfaceValidations {
     @objc private func quitApp() {
         
         let alert = NSAlert()
-        alert.messageText = "Are you sure you want to quit RDisk ?"
-        alert.informativeText = "All RAM disks will get ejected and all data stored on them will be lost."
-        let yesButton = alert.addButton(withTitle: "Yes, Quit")
+        alert.messageText = "Do you want to eject all RAM disks ?"
+        alert.informativeText = "When quitting RDisk you can choose whether you want to leave the disks mounted or eject all of them."
+        let yesButton = alert.addButton(withTitle: "Quit")
+        let ejectButton = alert.addButton(withTitle: "Eject and Quit")
         let cancelButton = alert.addButton(withTitle: "Cancel")
         
         cancelButton.keyEquivalent = "\r"
         yesButton.keyEquivalent = ""
+        ejectButton.keyEquivalent = ""
         alert.alertStyle = NSAlert.Style.critical
         
-        if alert.runModal() == .alertFirstButtonReturn {
-            #warning("Update quit dialog")
+        switch alert.runModal() {
+        case .alertFirstButtonReturn: NSApp.terminate(self)
+        case .alertSecondButtonReturn:
             RAMDiskManager.shared.mountedRAMDisks.forEach { $0.eject() }
-                NSApp.terminate(self)
+            NSApp.terminate(self)
+        default: break
         }
     }
 }

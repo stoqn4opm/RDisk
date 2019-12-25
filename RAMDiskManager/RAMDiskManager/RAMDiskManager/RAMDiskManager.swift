@@ -241,6 +241,10 @@ extension RAMDiskManager {
         restoreData.forEach { data in
             createRAMDisk(name: data.name, fileSystem: data.fileSystem, capacity: data.capacity / .countOfBytesIn1MB) { [weak self] (disk, error) in
                 finishedTasks += 1
+                
+                _ = disk  // used to prevent compiler confusion about this closure type to be () -> (),
+                _ = error // which causes a crash when saving to `.diskCreatingCompletions`
+                
                 guard finishedTasks == self?.restoreData.count else { return }
                 self?.storeDiskSetup()
             }
