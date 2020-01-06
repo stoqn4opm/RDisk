@@ -29,4 +29,4 @@ Go to GitHub's [releases page](https://github.com/stoqn4opm/RDisk/releases) of `
 
 # Licence
 
-The framework is licensed under MIT licence. For more information see file `LICENCE`
+The tool is licensed under MIT licence. For more information see file `LICENCE`
